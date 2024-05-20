@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameInfo>
+	<AiFavoredItems>
+		<!--More stuff in core.xml-->
+	
+		<!--Feel free to build these-->
+		<Delete ListType="MinorCivDistricts" Item="DISTRICT_CAMPUS" />
+		<Delete ListType="MinorCivDistricts" Item="DISTRICT_COMMERCIAL_HUB" />
+		<Delete ListType="MinorCivDistricts" Item="DISTRICT_INDUSTRIAL_ZONE" />
+		<Delete ListType="MinorCivDistricts" Item="DISTRICT_THEATER" />
+
+		<Row ListType="STD_DIPLOS" Item="DIPLOACTION_DECLARE_WAR_MINOR_CIV" Value="-2"/>
+		
+		<!--Not sure whether values work here, but either that or the favored should make these less likely choices-->
+		<Update>
+			<Set Value="-3"></Set>
+			<Where ListType="MinorCivUnitBuilds"  Item="PROMOTION_CLASS_RECON"></Where>
+		</Update>
+		<Update>
+			<Set Favored="false"></Set>
+			<Where ListType="MinorCivUnitBuilds"  Item="PROMOTION_CLASS_RECON"></Where>
+		</Update>
+		<Row ListType="MinorCivUnitBuilds" Item="PROMOTION_CLASS_SIEGE" Favored="false" Value="-3"/>
+		<Row ListType="MinorCivUnitBuilds" Item="PROMOTION_CLASS_SUPPORT" Favored="false" Value="-3"/>
+
+	</AiFavoredItems>
+</GameInfo>

@@ -1,0 +1,553 @@
+<GameInfo>
+
+
+	<AiOperationTypes>
+		<Row OperationType="CARELESS_CITYATTACK" Value="8" />
+		<Row OperationType="OP_NAVAL_SETTLE" Value="9" />
+		<Row OperationType="SUPER_LONG_RANGE_ATTACK" Value="10" />
+	</AiOperationTypes>
+
+	<AiTeams>
+		<Row TeamName="Train" />
+	</AiTeams>
+
+	<AiFavoredItems>
+		<!--Changes the amount of operations of these types that can run at the same time-->
+		<Update>
+			<Set Value="3"></Set>
+			<Where ListType="BaseOperationsLimits"  Item="CITY_ASSAULT"></Where>
+		</Update>
+
+		<Update>
+			<Set Value="1"></Set>
+			<Where ListType="BaseOperationsLimits"  Item="OP_DEFENSE"></Where>
+		</Update>
+
+		<Update>
+			<Set Value="2"></Set>
+			<Where ListType="BaseOperationsLimits"  Item="OP_SETTLE"></Where>
+		</Update>
+
+
+		<!--<Row ListType="BaseOperationsLimits" Item="ZERGRUSH" Value="3" />-->
+
+	</AiFavoredItems>
+
+	<AllowedMoves>
+		<Update>
+			<Set IsHomeland="true"></Set>
+			<Where AllowedMoveType="Attack High Priority"></Where>
+		</Update>
+		<Update>
+			<Set IsHomeland="true"></Set>
+			<Where AllowedMoveType="Attack Medium Priority"></Where>
+		</Update>
+	</AllowedMoves>
+
+	<UnitAiTypes>
+		<Row AiType="UNITTYPE_SIEGELIKE"/>
+		<Row AiType="UNITTYPE_UTILITY"/>
+		<Row AiType="UNITTYPE_SIEGELIKE_NO_UU"/>
+		<Row AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row AiType="UNITTYPE_TRAIN"/>
+
+	</UnitAiTypes>
+
+
+	<UnitAiInfos>
+		<!--This is a more useful category than either siege / siegesupport when deciding whether were
+			forming teams. Don't want to require a siege support in the information age for example
+		-->
+		<Row UnitType="UNIT_CATAPULT" AiType="UNITTYPE_SIEGELIKE"/>
+		<Row UnitType="UNIT_BOMBARD" AiType="UNITTYPE_SIEGELIKE"/>
+		<Row UnitType="UNIT_ARTILLERY" AiType="UNITTYPE_SIEGELIKE"/>
+		<Row UnitType="UNIT_ROCKET_ARTILLERY" AiType="UNITTYPE_SIEGELIKE"/>
+		<Row UnitType="UNIT_BATTERING_RAM" AiType="UNITTYPE_SIEGELIKE"/>
+		<Row UnitType="UNIT_SIEGE_TOWER" AiType="UNITTYPE_SIEGELIKE"/>
+		<Row UnitType="UNIT_JET_BOMBER" AiType="UNITTYPE_SIEGELIKE"/>
+		<Row UnitType="UNIT_BOMBER" AiType="UNITTYPE_SIEGELIKE"/>
+
+
+
+		<!--The utility category is like the siege one, except a little looser. It also allows for other useful units, like medics, great generals, unique units etc.-->
+		<!--The intention is that such utility units should be at least able to be send through as contracts, so they actually get build. 
+		And additionally, that it'd be okay to take for example 1 artillery and 1 medic, rather than requiring 2 artillery, so they don't get locked out of war.-->
+		<Row UnitType="UNIT_BATTERING_RAM" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_SIEGE_TOWER" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_MILITARY_ENGINEER" AiType="UNITTYPE_UTILITY"/>
+
+
+		<Row UnitType="UNIT_ARTILLERY" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_ROCKET_ARTILLERY" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_BOMBARD" AiType="UNITTYPE_UTILITY"/>
+
+		<Row UnitType="UNIT_MEDIC" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_OBSERVATION_BALLOON" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_ANTIAIR_GUN" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_MOBILE_SAM" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_CATAPULT" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_BIPLANE" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_FIGHTER" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_BOMBER" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_JET_FIGHTER" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_JET_BOMBER" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_GREAT_GENERAL" AiType="UNITTYPE_UTILITY"/>
+
+		<!--Following are to ensure the AI doesn't get locked out of war if it has an UU. Utility isn't thaat important-->
+		<Row UnitType="UNIT_ROMAN_LEGION" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_GREEK_HOPLITE" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_SCYTHIAN_HORSE_ARCHER" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_SUMERIAN_WAR_CART" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_ENGLISH_REDCOAT" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_SPANISH_CONQUISTADOR" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_AMERICAN_ROUGH_RIDER" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_AMERICAN_P51" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_JAPANESE_SAMURAI" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_NORWEGIAN_BERSERKER" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_INDIAN_VARU" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_RUSSIAN_COSSACK" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_KONGO_SHIELD_BEARER" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_ARABIAN_MAMLUK" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_FRENCH_GARDE_IMPERIALE" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_CHINESE_CROUCHING_TIGER" AiType="UNITTYPE_UTILITY"/>
+		<Row UnitType="UNIT_EGYPTIAN_CHARIOT_ARCHER" AiType="UNITTYPE_UTILITY"/>
+
+		<!--Gotta do the same but now without the UU's to better do maximum values (don't want to max UU's at 3 or something)-->
+		<Row UnitType="UNIT_BATTERING_RAM" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_SIEGE_TOWER" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_MILITARY_ENGINEER" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_MEDIC" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_OBSERVATION_BALLOON" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_ANTIAIR_GUN" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_MOBILE_SAM" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_CATAPULT" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_ARTILLERY" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_ROCKET_ARTILLERY" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_BOMBARD" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_BIPLANE" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_FIGHTER" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_BOMBER" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_JET_FIGHTER" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_JET_BOMBER" AiType="UNITTYPE_UTILITY_NO_UU"/>
+		<Row UnitType="UNIT_GREAT_GENERAL" AiType="UNITTYPE_UTILITY_NO_UU"/>
+
+
+		<Row UnitType="UNIT_MEDIC" AiType="UNITTYPE_TRAIN"/>
+		<Row UnitType="UNIT_OBSERVATION_BALLOON" AiType="UNITTYPE_TRAIN"/>
+		<Row UnitType="UNIT_ANTIAIR_GUN" AiType="UNITTYPE_TRAIN"/>
+		<Row UnitType="UNIT_MOBILE_SAM" AiType="UNITTYPE_TRAIN"/>
+		<Row UnitType="UNIT_BIPLANE" AiType="UNITTYPE_TRAIN"/>
+		<Row UnitType="UNIT_FIGHTER" AiType="UNITTYPE_TRAIN"/>
+		<Row UnitType="UNIT_BOMBER" AiType="UNITTYPE_TRAIN"/>
+		<Row UnitType="UNIT_JET_FIGHTER" AiType="UNITTYPE_TRAIN"/>
+		<Row UnitType="UNIT_JET_BOMBER" AiType="UNITTYPE_TRAIN"/>
+
+	</UnitAiInfos>
+
+	<OpTeamRequirements>
+		<Delete TeamName="Settle City Team"/>
+
+		<Row TeamName="Settle City Team" AiType="UNITAI_SETTLE" MinNumber="1" MaxNumber="1" />
+		<!--<Row TeamName="Settle City Team" AiType="UNITTYPE_LAND_COMBAT" MinNumber="1" MaxNumber="2"  ReconsiderWhilePreparing="false" />
+		<Row TeamName="Settle City Team" AiType="UNITAI_COMBAT" MinNumber="1" MaxNumber="2"  ReconsiderWhilePreparing="false" />-->
+
+		<Row TeamName="Settle City Team" AiType="UNITTYPE_NAVAL" MaxNumber="0" />
+		<Row TeamName="Settle City Team" AiType="UNITTYPE_MELEE" MinNumber="1" MaxNumber="2" />
+		<Row TeamName="Settle City Team" AiType="UNITTYPE_RANGED" MaxNumber="1" />
+		<Row TeamName="Settle City Team" AiType="UNITTYPE_CAVALRY" MaxNumber="1" />
+		<Row TeamName="Settle City Team" AiType="UNITTYPE_UTILITY_NO_UU" MaxNumber="0" />
+		<Row TeamName="Settle City Team" AiType="UNITTYPE_SIEGELIKE_NO_UU" MaxNumber="0" />
+
+		<Delete TeamName="City Defense"/>
+
+		<Row TeamName="City Defense" AiType="UNITTYPE_CIVILIAN" MaxNumber="0" />
+		<Row TeamName="City Defense" AiType="UNITTYPE_NAVAL" MaxNumber="0" />
+		<Row TeamName="City Defense" AiType="UNITAI_COMBAT" MinNumber="1"  MaxNumber="3" />
+		<Row TeamName="City Defense" AiType="UNITAI_SETTLE" MaxNumber="0" />
+		<Row TeamName="City Defense" AiType="UNITTYPE_LAND_COMBAT" MinNumber="1"  MaxNumber="3" />
+		<Row TeamName="City Defense" AiType="UNITTYPE_CAVALRY" MaxNumber="3" />
+		<Row TeamName="City Defense" AiType="UNITTYPE_MELEE" MaxNumber="3" />
+		<Row TeamName="City Defense" AiType="UNITTYPE_RANGED" MaxNumber="3" />
+
+
+
+
+
+		<Delete TeamName="Simple Early Attack Force"/>
+		<Row TeamName="Simple Early Attack Force" AiType="UNITAI_COMBAT" MinNumber="1" MaxNumber="5" />
+		<Row TeamName="Simple Early Attack Force" AiType="UNITTYPE_CIVILIAN" MaxNumber="0" />
+		<Row TeamName="Simple Early Attack Force" AiType="UNITTYPE_NAVAL" MaxNumber="0" />
+		<Row TeamName="Simple Early Attack Force" AiType="UNITTYPE_CAVALRY" MaxNumber="3" />
+
+
+		<Delete TeamName="Simple City Attack Force"/>
+		<Row TeamName="Simple City Attack Force" AiType="UNITTYPE_MELEE" MinNumber="2" />
+		<Row TeamName="Simple City Attack Force" AiType="UNITAI_COMBAT" MinNumber="5" MaxNumber="16" />
+		<Row TeamName="Simple City Attack Force" AiType="UNITTYPE_CIVILIAN" MaxNumber="0" />
+		<Row TeamName="Simple City Attack Force" AiType="UNITTYPE_CIVILIAN_LEADER" MaxNumber="1" />
+		<Row TeamName="Simple City Attack Force" AiType="UNITTYPE_CAVALRY" MaxNumber="6" />
+
+		<Row TeamName="Simple City Attack Force" AiType="UNITTYPE_NAVAL" MaxNumber="0" />
+		<!--<Row TeamName="Simple City Attack Force" AiType="UNITTYPE_SIEGE_SUPPORT"  MaxNumber="1" />-->
+		<Row TeamName="Simple City Attack Force" AiType="UNITTYPE_SIEGELIKE" MaxNumber="3" />
+		<Row TeamName="Simple City Attack Force" AiType="UNITTYPE_UTILITY_NO_UU" MaxNumber="3" />
+
+
+		<Delete TeamName="City Attack Force"/>
+		<Row TeamName="City Attack Force" AiType="UNITTYPE_MELEE" MinNumber="3" />
+		<!--<Row TeamName="City Attack Force" AiType="UNITTYPE_RANGED" MinNumber="1" />-->
+		<!--<Row TeamName="City Attack Force" AiType="UNITTYPE_SIEGE" MaxNumber="5" />-->
+		<Row TeamName="City Attack Force" AiType="UNITAI_COMBAT" MinNumber="4" MaxNumber="13" />
+		<!--Max is set because the AI cant handle logistics above a certain number of units-->
+		<!--<Row TeamName="City Attack Force" AiType="UNITTYPE_SIEGE_SUPPORT"  MaxNumber="3" />-->
+		<Row TeamName="City Attack Force" AiType="UNITTYPE_CIVILIAN" MaxNumber="0" />
+		<Row TeamName="City Attack Force" AiType="UNITTYPE_CIVILIAN_LEADER" MaxNumber="1" />
+		<Row TeamName="City Attack Force" AiType="UNITTYPE_CAVALRY" MaxNumber="6" />
+
+		<Row TeamName="City Attack Force" AiType="UNITTYPE_NAVAL" MaxNumber="0" />
+		<Row TeamName="City Attack Force" AiType="UNITTYPE_UTILITY" MinNumber="2" MaxNumber="5"/>
+		<Row TeamName="City Attack Force" AiType="UNITTYPE_SIEGELIKE" MinNumber="1" MaxNumber="4" />
+		<Row TeamName="City Attack Force" AiType="UNITTYPE_UTILITY_NO_UU" MaxNumber="6" />
+		<Row TeamName="City Attack Force" AiType="UNITTYPE_AIR_SIEGE" MinNumber="0" MaxNumber="2" />
+
+		<Row TeamName="Train" AiType="UNITTYPE_TRAIN" MinNumber="2" />
+
+	</OpTeamRequirements>
+
+
+
+
+
+
+
+	<AiOperationDefs>
+		<!--How many of each operation can be chosen depends on operationlimits, which can be found throughout these files-->
+		<!--Note: the lower the priority, the more likely it will be chosen-->
+
+
+
+		<Update>
+			<Set TargetType="TARGET_ENEMY_COMBAT_DISTRICT" OperationType="CITY_ASSAULT" BehaviorTree="Early City Assault" SelfStart="True" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="10" MaxTargetDistInWorld="10" MinOddsOfSuccess="0.39"></Set>
+			<Where OperationName="Attack Enemy City"></Where>
+		</Update>
+		<Update>
+			<Set TargetType="TARGET_ENEMY_COMBAT_DISTRICT" OperationType="CITY_ASSAULT" BehaviorTree="Early City Assault" SelfStart="True" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="10" MaxTargetDistInWorld="10" MinOddsOfSuccess="0.35" MustBeAtWar="true" ></Set>
+			<Where OperationName="Wartime Attack Enemy City"></Where>
+		</Update>
+
+		<Update>
+			<Set TargetType="TARGET_ENEMY_COMBAT_DISTRICT" TargetParameter="1" OperationType="CITY_ASSAULT" BehaviorTree="Siege City Assault" SelfStart="True" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="10" MaxTargetDistInWorld="10" MinOddsOfSuccess="0.44" ></Set>
+			<Where OperationName="Attack Walled City"></Where>
+		</Update>
+
+
+		<Update>
+			<Set TargetType="TARGET_ENEMY_COMBAT_DISTRICT" TargetParameter="1" OperationType="CITY_ASSAULT" BehaviorTree="Siege City Assault" SelfStart="True" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="10" MaxTargetDistInWorld="10" MinOddsOfSuccess="0.40" MustBeAtWar="true"></Set>
+			<Where OperationName="Wartime Attack Walled City"></Where>
+		</Update>
+
+
+
+		<Row OperationName="Longrange Wartime Attack Unwalled City" TargetType="TARGET_ENEMY_COMBAT_DISTRICT" OperationType="SUPER_LONG_RANGE_ATTACK" BehaviorTree="Early City Assault" SelfStart="True" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="30" MaxTargetDistInWorld="30" MinOddsOfSuccess="0.4" MustBeAtWar="true" />
+
+		<Row OperationName="Longrange Wartime Attack Walled City" TargetType="TARGET_ENEMY_COMBAT_DISTRICT" TargetParameter="1" OperationType="SUPER_LONG_RANGE_ATTACK" BehaviorTree="Siege City Assault" SelfStart="True" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="30" MaxTargetDistInWorld="30" MinOddsOfSuccess="0.45" MustBeAtWar="true" />
+
+
+
+
+
+		<Update>
+			<Set TargetType="TARGET_BARBARIAN_CAMP" OperationType="ATTACK_BARBARIANS" BehaviorTree="Simple Operation Attack" Priority="2" MaxTargetDistInRegion="10" MaxTargetDistInArea="10" MaxTargetDistInWorld="10" MinOddsOfSuccess="0.1"></Set>
+			<Where OperationName="Barb Camp Tech Boost"></Where>
+		</Update>
+		<Update>
+			<Set TargetType="TARGET_BARBARIAN_CAMP" OperationType="ATTACK_BARBARIANS" BehaviorTree="Simple Operation Attack" Priority="2" SelfStart="True"  MaxTargetDistInRegion="10" MaxTargetDistInArea="10" MaxTargetDistInWorld="10" MinOddsOfSuccess="0.1"></Set>
+			<Where OperationName="Attack Barb Camp"></Where>
+		</Update>
+
+
+
+
+		<!--Was missing the op_defense operationtype in vanilla-->
+		<Update>
+			<Set TargetType="TARGET_FRIENDLY_CITY"  TargetParameter="1" BehaviorTree="Simple City Defense" Priority="2" MaxTargetDistInRegion="-1" MaxTargetDistInArea="12" MaxTargetDistInWorld="0"  MinOddsOfSuccess="0.01" OperationType="OP_DEFENSE"></Set>
+			<Where OperationName="City Defense"></Where>
+		</Update>
+		<!--Adding this to be sure-->
+		<Row OperationName="City Defense Unwalled" TargetType="TARGET_FRIENDLY_CITY" TargetParameter="0" BehaviorTree="Simple City Defense" Priority="2" MaxTargetDistInRegion="-1" MaxTargetDistInArea="12" MaxTargetDistInWorld="0" MinOddsOfSuccess="0.01" OperationType="OP_DEFENSE" />
+
+		<!--<Row OperationName="City Defense" TargetType="TARGET_FRIENDLY_CITY"  OperationType="OP_DEFENSE" TargetParameter="1" BehaviorTree="Simple City Defense" Priority="4" MaxTargetDistInRegion="-1" MaxTargetDistInArea="-1" MaxTargetDistInWorld="0"  MinOddsOfSuccess="0.01"/>
+		
+		<Row OperationName="City Defense Unwalled" TargetType="TARGET_FRIENDLY_CITY" OperationType="OP_DEFENSE" TargetParameter="0" BehaviorTree="Simple City Defense" Priority="4" MaxTargetDistInRegion="-1" MaxTargetDistInArea="-1" MaxTargetDistInWorld="0" MinOddsOfSuccess="0.01" />-->
+
+
+		<!--Added appropriate operationtype here. May have been causing some funky bugs without it-->
+		<Update>
+			<Set TargetType="TARGET_FRIENDLY_CITY" OperationType="OP_ESCORT" BehaviorTree="Escort Worker To Camp" Priority="1" MaxTargetDistInRegion="-1" MaxTargetDistInArea="-1" MaxTargetDistInWorld="0"></Set>
+			<Where OperationName="Civilian Builder Capture"></Where>
+		</Update>
+
+		<Update>
+
+			<Set TargetType="TARGET_SETTLE_LOCATION" OperationType="OP_SETTLE" BehaviorTree="Settle City Op" Priority="3" MaxTargetDistInRegion="13" MaxTargetDistInArea="-1" MaxTargetDistInWorld="-1" MinOddsOfSuccess="0.17"></Set>
+			<Where OperationName="Settle New City"></Where>
+		</Update>
+
+		<!--<Set TargetType="TARGET_SETTLE_LOCATION" OperationType="OP_SETTLE" BehaviorTree="Settle City Op" Priority="3" MaxTargetDistInRegion="13" MaxTargetDistInArea="-1" MaxTargetDistInWorld="-1" MinOddsOfSuccess="0.15"></Set>-->
+
+
+		<Row OperationName="Train Units" TargetType="TARGET_FRIENDLY_CITY" TargetParameter="0" BehaviorTree="Train Units" Priority="4" MaxTargetDistInRegion="-1" MaxTargetDistInArea="-1" MaxTargetDistInWorld="0" MinOddsOfSuccess="0.01" />
+
+		<Row OperationName="Naval Settle New City" TargetType="TARGET_SETTLE_LOCATION" OperationType="OP_NAVAL_SETTLE" BehaviorTree="Settle City Op" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="-1" MaxTargetDistInWorld="30" MinOddsOfSuccess="0.25" />
+
+	</AiOperationDefs>
+
+
+	<AiOperationTeams>
+
+
+		<!--<Delete TeamName="Simple City Attack Force"/>
+			<Row TeamName="Simple City Attack Force" OperationName="Attack Enemy City" InitialStrengthAdvantage="1.5" OngoingStrengthAdvantage="3" />
+			<Row TeamName="Simple City Attack Force" OperationName="Wartime Attack Enemy City" InitialStrengthAdvantage="0.5" OngoingStrengthAdvantage="3" />
+	
+			<Delete TeamName="City Attack Force"/>
+			<Row TeamName="City Attack Force" OperationName="Attack Walled City" InitialStrengthAdvantage="2" OngoingStrengthAdvantage="3" />
+			<Row TeamName="City Attack Force" OperationName="Wartime Attack Walled City" InitialStrengthAdvantage="1.8" OngoingStrengthAdvantage="3" />-->
+
+
+
+		<Delete TeamName="Simple City Attack Force"/>
+		<Row TeamName="Simple City Attack Force" OperationName="Attack Enemy City" InitialStrengthAdvantage="-150" OngoingStrengthAdvantage="800" />
+		<Row TeamName="Simple City Attack Force" OperationName="Wartime Attack Enemy City" InitialStrengthAdvantage="-150" OngoingStrengthAdvantage="800" />
+
+		<Delete TeamName="City Attack Force"/>
+		<Row TeamName="City Attack Force" OperationName="Attack Walled City" InitialStrengthAdvantage="-200" OngoingStrengthAdvantage="1000" />
+		<Row TeamName="City Attack Force" OperationName="Wartime Attack Walled City" InitialStrengthAdvantage="-200" OngoingStrengthAdvantage="1000" />
+
+		<Delete TeamName="Settle City Team"/>
+		<Row TeamName="Settle City Team" OperationName="Settle New City" InitialStrengthAdvantage="200" OngoingStrengthAdvantage="500" SafeRallyPoint="true" />
+
+		<Delete TeamName="Simple Early Attack Force"/>
+		<Row TeamName="Simple Early Attack Force" OperationName="Attack Barb Camp" InitialStrengthAdvantage="500" OngoingStrengthAdvantage="1000" />
+		<Row TeamName="Simple Early Attack Force" OperationName="Barb Camp Tech Boost" InitialStrengthAdvantage="500" OngoingStrengthAdvantage="1000" />
+
+		<Delete TeamName="City Defense"/>
+		<Row TeamName="City Defense" OperationName="City Defense" InitialStrengthAdvantage="1000" OngoingStrengthAdvantage="2000" />
+		<Row TeamName="City Defense" OperationName="City Defense Unwalled" InitialStrengthAdvantage="1000" OngoingStrengthAdvantage="2000" />
+
+
+		<Row TeamName="Train" OperationName="Train Units" InitialStrengthAdvantage="0" OngoingStrengthAdvantage="0" />
+
+	</AiOperationTeams>
+
+
+	<TreeData>
+		<!--Should increase the recruit range-->
+		<Row DefnId="2" NodeId="7" TreeName="Simple Operation Attack" DefaultData="15" />
+		<Row DefnId="2" NodeId="12" TreeName="Simple Operation Attack" DefaultData="8" />
+		<Row DefnId="2" NodeId="16" TreeName="Simple Operation Attack" DefaultData="8" />
+	</TreeData>
+
+
+
+	<GlobalParameters>
+		<Update>
+			<Set Value="20"></Set>
+			<Where Name="WAR_WEARINESS_WARMONGER_BASE"></Where>
+		</Update>
+	</GlobalParameters>
+
+
+
+	<Strategies>
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" NumConditionsNeeded="2"/>
+		<Row StrategyType="STRATEGY_AM_STRONG" NumConditionsNeeded="1"/>
+		<Row StrategyType="STRATEGY_AM_STRONG_LATE" NumConditionsNeeded="2"/>
+		<Row StrategyType="STRATEGY_AM_VERY_STRONG" NumConditionsNeeded="1"/>
+	</Strategies>
+	<StrategyConditions>
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ConditionFunction="Leads Military" ThresholdValue="50" />
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ConditionFunction="Major Civ Wars" ThresholdValue="0"/>
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ConditionFunction="Is Not Major" Disqualifier="true"/>
+
+		<Row StrategyType="STRATEGY_AM_STRONG" ConditionFunction="Leads Military" ThresholdValue="100" />
+		<Row StrategyType="STRATEGY_AM_STRONG" ConditionFunction="Is Not Major" Disqualifier="true"/>
+
+		<Row StrategyType="STRATEGY_AM_STRONG_LATE" ConditionFunction="Leads Military" ThresholdValue="100" />
+		<Row StrategyType="STRATEGY_AM_STRONG_LATE" ConditionFunction="Is Not Major" Disqualifier="true"/>
+		<Row StrategyType="STRATEGY_AM_STRONG_LATE" ConditionFunction="Is Renaissance" ThresholdValue="1"/>
+
+		<Row StrategyType="STRATEGY_AM_VERY_STRONG" ConditionFunction="Leads Military" ThresholdValue="1000" />
+		<Row StrategyType="STRATEGY_AM_VERY_STRONG" ConditionFunction="Is Not Major" Disqualifier="true"/>
+	</StrategyConditions>
+	<Strategy_Priorities>
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ListType="WAR_MORE"/>
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ListType="WAR_MORE_OPERATIONS"/>
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ListType="WAR_MORE_DISTRICTS"/>
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ListType="WAR_MORE_PSEUDOS"/>
+
+		<Row StrategyType="STRATEGY_AM_STRONG" ListType="AM_STRONG_OPERATIONS"/>
+		<Row StrategyType="STRATEGY_AM_VERY_STRONG" ListType="AM_VERY_STRONG_OPERATIONS"/>
+
+		<Row StrategyType="STRATEGY_AM_STRONG" ListType="AM_STRONG_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_AM_STRONG" ListType="AM_STRONG_BUILDINGS"/>
+		<Row StrategyType="STRATEGY_AM_STRONG" ListType="AM_STRONG_DIPLOS"/>
+
+		<Row StrategyType="STRATEGY_AM_STRONG_LATE" ListType="AM_STRONG_LATE_OPERATIONS"/>
+
+		<Row StrategyType="STRATEGY_AM_VERY_STRONG" ListType="AM_VERY_STRONG_PSEUDOS"/>
+
+		<Row StrategyType="VICTORY_STRATEGY_MILITARY_VICTORY" ListType="WAR_MORE"/>
+		<Row StrategyType="VICTORY_STRATEGY_MILITARY_VICTORY" ListType="WAR_MORE_OPERATIONS"/>
+		<Row StrategyType="VICTORY_STRATEGY_MILITARY_VICTORY" ListType="WAR_MORE_DISTRICTS"/>
+		<Row StrategyType="VICTORY_STRATEGY_MILITARY_VICTORY" ListType="WAR_MORE_PSEUDOS"/>
+
+	</Strategy_Priorities>
+
+	<AiListTypes>
+		<Row ListType="WAR_MORE" />
+		<Row ListType="WAR_MORE_OPERATIONS" />
+		<Row ListType="WAR_MORE_PSEUDOS" />
+		<Row ListType="WAR_MORE_DISTRICTS" />
+
+		<Row ListType="AM_STRONG_OPERATIONS" />
+		<Row ListType="AM_STRONG_PSEUDOS" />
+		<Row ListType="AM_STRONG_BUILDINGS" />
+		<Row ListType="AM_STRONG_LATE_OPERATIONS" />
+		<Row ListType="AM_VERY_STRONG_OPERATIONS" />
+		<Row ListType="AM_VERY_STRONG_PSEUDOS" />
+		<Row ListType="AM_STRONG_DIPLOS" />
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="WAR_MORE" System="DiplomaticActions"/>
+		<Row ListType="WAR_MORE_OPERATIONS" System="AiOperationTypes"/>
+		<Row ListType="WAR_MORE_DISTRICTS" System="Districts"/>
+
+		<Row ListType="AM_STRONG_OPERATIONS" System="AiOperationTypes"/>
+		<Row ListType="AM_VERY_STRONG_OPERATIONS" System="AiOperationTypes"/>
+		<Row ListType="AM_STRONG_LATE_OPERATIONS" System="AiOperationTypes"/>
+
+		<Row ListType="AM_STRONG_DIPLOS" System="DiplomaticActions"/>
+
+		<Row ListType="WAR_MORE_PSEUDOS" System="PseudoYields"/>
+		<Row ListType="AM_STRONG_PSEUDOS" System="PseudoYields"/>
+		<Row ListType="AM_STRONG_BUILDINGS" System="Buildings"/>
+		<Row ListType="AM_VERY_STRONG_PSEUDOS" System="PseudoYields"/>
+
+	</AiLists>
+	<AiFavoredItems>
+		<!--<Row ListType="WAR_MORE" Item="DIPLOACTION_DECLARE_SURPRISE_WAR" Favored="true" value="0.3"/>-->
+		<Row ListType="WAR_MORE" Item="DIPLOACTION_DECLARE_HOLY_WAR" Favored="true" value="0.3"/>
+		<Row ListType="WAR_MORE" Item="DIPLOACTION_JOINT_WAR" Favored="true" value="0.3"/>
+		<Row ListType="WAR_MORE" Item="DIPLOACTION_DECLARE_FORMAL_WAR" Favored="true" value="0.3"/>
+		<Row ListType="WAR_MORE" Item="DIPLOACTION_DECLARE_RECONQUEST_WAR" Favored="true" value="0.3"/>
+		<Row ListType="WAR_MORE" Item="DIPLOACTION_DECLARE_PROTECTORATE_WAR" Favored="true" value="0.3"/>
+		<Row ListType="WAR_MORE" Item="DIPLOACTION_DECLARE_COLONIAL_WAR" Favored="true" value="0.3"/>
+		<Row ListType="WAR_MORE" Item="DIPLOACTION_DECLARE_SURPRISE_WAR" Favored="true" value="0.3"/>
+		<Row ListType="WAR_MORE" Item="DIPLOACTION_DECLARE_TERRITORIAL_WAR" Favored="true" value="0.3"/>
+
+		<!--<Row ListType="WAR_MORE" Item="DIPLOACTION_MAKE_PEACE" Favored="false" />-->
+		<Row ListType="AM_STRONG_OPERATIONS" Item="CITY_ASSAULT" Value="3" />
+		<Row ListType="AM_VERY_STRONG_OPERATIONS" Item="CITY_ASSAULT" Value="4" />
+		<Row ListType="AM_VERY_STRONG_OPERATIONS" Item="ZERGRUSH" Value="4" />
+		<Row ListType="AM_STRONG_LATE_OPERATIONS" Item="SUPER_LONG_RANGE_ATTACK" Value="1" />
+
+
+		<Row ListType="WAR_MORE_OPERATIONS" Item="OP_DEFENSE" Value="-1" />
+		<!--Set defense off temporarily so we can recruit more for an attack-->
+
+		<!--Makes them more likely to attack cities-->
+		<Row ListType="WAR_MORE_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="150" />
+		<Row ListType="AM_STRONG_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="75" />
+		<Row ListType="AM_VERY_STRONG_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="125" />
+		<Row ListType="WAR_MORE_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENDING_UNITS" Value="-10"/>
+		<Row ListType="AM_STRONG_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENDING_UNITS" Value="-10"/>
+		<Row ListType="AM_VERY_STRONG_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENDING_UNITS" Value="-10"/>
+
+		<!--Make more units-->
+		<Row ListType="WAR_MORE_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="300"/>
+		<Row ListType="AM_STRONG_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="100"/>
+		<Row ListType="AM_VERY_STRONG_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="100"/>
+
+		<!--Terracotta is great if we have a ton of units-->
+		<Row ListType="AM_STRONG_BUILDINGS" Item="BUILDING_TERRACOTTA_ARMY"/>
+
+		<Row ListType="AM_STRONG_DIPLOS" Item="DIPLOACTION_DEMAND_TRIBUTE" Favored="true"/>
+
+
+	</AiFavoredItems>
+
+
+	<AllowedOperations>
+		<Row ListType="Default_List" OperationDef="City Defense Unwalled" />
+	</AllowedOperations>
+
+	<AiLists>
+		<Delete ListType="Default Tactical"/>
+
+	</AiLists>
+
+	<AiLists>
+
+	</AiLists>
+
+	<AiFavoredItems>
+
+
+		<!--See core.xml for part of the new tactics (needs to be in same file as deity strategy)--->
+		<Delete ListType="Default Barbarian HL"/>
+		<!--<Row ListType="Default Barbarian HL" Item="Attack Civilians"/>-->
+		<!--Removed again for now as it was affecting AI civs way too much-->
+		<Row ListType="Default Barbarian HL" Item="Plunder Trader" />
+		<Row ListType="Default Barbarian HL" Item="Move to Safety" />
+		<Row ListType="Default Barbarian HL" Item="Explore Land" />
+		<Row ListType="Default Barbarian HL" Item="End Turn" />
+
+		<Delete ListType="Default Barbarian"/>
+		<Row ListType="Default Barbarian" Item="Barbarian Rampage" />
+		<Row ListType="Default Barbarian" Item="Attack Civilians" />
+		<Row ListType="Default Barbarian" Item="Attack High Priority" />
+		<Row ListType="Default Barbarian" Item="Defend Camps" />
+		<Row ListType="Default Barbarian" Item="Plunder Trader" />
+		<Row ListType="Default Barbarian" Item="Pillage District" />
+		<Row ListType="Default Barbarian" Item="Attack Medium Priority" />
+		<Row ListType="Default Barbarian" Item="Coastal Raid" />
+		<Row ListType="Default Barbarian" Item="Pillage Improvement" />
+		<Row ListType="Default Barbarian" Item="Attack Low Priority" />
+		<Row ListType="Default Barbarian" Item="Move to Safety" />
+		<Row ListType="Default Barbarian" Item="Chase Target" />
+		<Row ListType="Default Barbarian" Item="Wander Near Camp" />
+
+
+		<Delete ListType="Default Homeland"/>
+		<Row ListType="Default Homeland" Item="Air Assault" />
+		<Row ListType="Default Homeland" Item="Air Rebase" />
+		<Row ListType="Default Homeland" Item="Air Deploy" />
+		<Row ListType="Default Homeland" Item="First Turn Settler" />
+		<Row ListType="Default Homeland" Item="Great Person Move" />
+		<Row ListType="Default Homeland" Item="Found Park" />
+		<Row ListType="Default Homeland" Item="Attack Civilians" />
+		<Row ListType="Default Homeland" Item="Gather Goody Hut" />
+
+		<Row ListType="Default Homeland" Item="Leader Formation" />
+		<Row ListType="Default Homeland" Item="Charge Heal" />
+
+		<Row ListType="Default Homeland" Item="Move to Safety" />
+		<Row ListType="Default Homeland" Item="Promotion" />
+		<Row ListType="Default Homeland" Item="Religious Combat" />
+		<Row ListType="Default Homeland" Item="Missionary Move" />
+		<Row ListType="Default Homeland" Item="Builder Outside Ring" />
+		<Row ListType="Default Homeland" Item="Explore Land" />
+		<Row ListType="Default Homeland" Item="End Turn" />
+
+
+	</AiFavoredItems>
+
+	<!--<Units>
+		<Update>
+			<Set Name=" MILITARY END"></Set>
+			<Where UnitType="UNIT_SLINGER"></Where>
+		</Update>
+	</Units>-->
+
+</GameInfo>
