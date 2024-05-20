@@ -94,14 +94,14 @@ INSERT INTO ModifierArguments
 			(ModifierId,							Name,							Value												)
 VALUES		('AGENDA_MODIFIER_BOP_UNHAPPY',	'InitialValue',					-50											),
 			('AGENDA_MODIFIER_BOP_UNHAPPY',	'IncrementValue',				-5													),
-			('AGENDA_MODIFIER_BOP_UNHAPPY',	'IncrementTurns',				-5													),
+			('AGENDA_MODIFIER_BOP_UNHAPPY',	'IncrementTurns',				-10													),
 			('AGENDA_MODIFIER_BOP_UNHAPPY',	'MaxValue',						-200												),
 			('AGENDA_MODIFIER_BOP_UNHAPPY',	'StatementKey',					'LOC_DIPLO_WARNING_LEADER_BOP_REASON_ANY'	),
 			('AGENDA_MODIFIER_BOP_UNHAPPY',	'SimpleModifierDescription',	'LOC_DIPLO_MODIFIER_BOP_UNHAPPY'				),
 	
 			('AGENDA_MODIFIER_BOP_HAPPY',	'InitialValue',					50													),
 			('AGENDA_MODIFIER_BOP_HAPPY',	'IncrementValue',				5													),
-			('AGENDA_MODIFIER_BOP_HAPPY',	'IncrementTurns',				5													),
+			('AGENDA_MODIFIER_BOP_HAPPY',	'IncrementTurns',				10													),
 			('AGENDA_MODIFIER_BOP_HAPPY',	'MaxValue',						100													),
 			('AGENDA_MODIFIER_BOP_HAPPY',	'StatementKey',					'LOC_DIPLO_KUDO_LEADER_BOP_REASON_ANY'),
 			('AGENDA_MODIFIER_BOP_HAPPY',	'SimpleModifierDescription',	'LOC_DIPLO_MODIFIER_BOP_HAPPY');
