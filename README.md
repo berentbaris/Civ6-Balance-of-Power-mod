@@ -10,3 +10,5 @@ In Civ 6, the theory holds true when you are going for a domination victory, as 
 A simple modification to WHO the AI attacks could easily solve this problem. The AI should be made very eager to go to war with the civilization that is closest to victory. This tweak will result in the strongest civilization (the civilization most likely to win) having to fight off the combined forces of many other weaker civilizations in the late game, making it much more challenging and fun for the stronger civilizations and giving the weaker civilizations a chance to catch up.
 
 The mod incorporates other AI-improving mods like AI+ and RealStrategy.
+
+To install the mod, you can just drag the main folder to C:\Program Files (x86)\Steam\steamapps\workshop\content\. Have fun!
