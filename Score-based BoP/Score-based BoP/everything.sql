@@ -23,7 +23,10 @@ INSERT INTO AgendaTraits
 			(AgendaType,			TraitType					)
 VALUES 		('AGENDA_BOP',	'TRAIT_AGENDA_BOP'	);
 
-DELETE from HistoricalAgendas;
+UPDATE HistoricalAgendas
+SET AgendaType = "AGENDA_BOP";
+
+/*DELETE from HistoricalAgendas;
 
 INSERT INTO HistoricalAgendas
 			(LeaderType,					AgendaType)
@@ -73,7 +76,7 @@ VALUES		('LEADER_BARBAROSSA',			'AGENDA_BOP'),
 			('LEADER_MATTHIAS_CORVINUS',					'AGENDA_BOP'),
 			('LEADER_PACHACUTI',				'AGENDA_BOP'),
 			('LEADER_JULIUS_CAESAR',				'AGENDA_BOP'),
-			('LEADER_SULEIMAN',					'AGENDA_BOP');
+			('LEADER_SULEIMAN',					'AGENDA_BOP');*/
 
 INSERT INTO TraitModifiers
 			(TraitType,						ModifierId								)
