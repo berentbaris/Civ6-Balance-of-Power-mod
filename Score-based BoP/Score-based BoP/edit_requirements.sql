@@ -48,7 +48,7 @@ SET Value = 1.25
 Where RequirementId = "REQUIRES_HAS_HIGH_POPULATION" and Name = "PopulationRatio";
 
 UPDATE RequirementArguments
-SET Value = -1.1
+SET Value = -1.25
 Where RequirementId = "REQUIRES_HAS_LOW_POPULATION" and Name = "PopulationRatio";
 
 UPDATE RequirementArguments
