@@ -143,4 +143,12 @@ VALUES		("BOPResolutions", "WC_RES_BORDER_CONTROL", 1, 0),
 	
 UPDATE AiOperationDefs
 Set MinOddsOfSuccess = 0
+Where TargetType = "TARGET_ENEMY_COMBAT_DISTRICT";
+
+UPDATE AiOperationDefs
+Set MaxTargetDistInWorld = -1
+Where TargetType = "TARGET_ENEMY_COMBAT_DISTRICT";
+
+UPDATE AiOperationDefs
+Set MaxTargetDistInRegion = 75
 Where BehaviorTree = "Siege City Assault";
