@@ -21,13 +21,22 @@
 </Associations>]]></AssociationData>
     <AssemblyName>Balance of Power - Hegemony</AssemblyName>
     <RootNamespace>Balance of Power - Hegemony</RootNamespace>
-    <InGameActionData><![CDATA[<InGameActions><AddGameplayScripts id="NewAction"><File>Hegemonies.lua</File></AddGameplayScripts></InGameActions>]]></InGameActionData>
+    <InGameActionData><![CDATA[<InGameActions><AddGameplayScripts id="NewAction"><File>Hegemonies.lua</File></AddGameplayScripts><UpdateText id="NewAction"><File>local_text.sql</File></UpdateText><UpdateDatabase id="NewAction"><File>BoP_Agenda.sql</File><File>BoP_AiLists.sql</File></UpdateDatabase></InGameActions>]]></InGameActionData>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="BoP_Agenda.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BoP_AiLists.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Hegemonies.lua">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="local_text.sql">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>

@@ -28,7 +28,7 @@ function OnCheckGameEraChanged()
 
     for _, era in ipairs(erasToCheck) do
         print("Checking era: ", era);
-        if currentEra == era and iLastShownEraIndex ~= currentEra and localPlayer ~= PlayerTypes.NONE then
+        if currentEra == era and localPlayer ~= PlayerTypes.NONE then
             print("Era match found: ", currentEra);
             local pAllPlayerIDs = PlayerManager.GetAliveMajors();
             for _, pPlayer1 in ipairs(pAllPlayerIDs) do
@@ -73,15 +73,22 @@ function OnCheckGameEraChanged()
 				print("Other players count: ", #otherPlayers);
 				local averageScore = totalScore / #region_playerIDs;
 
+				local militaryAI = pPlayer1:GetAi_Military();
+				local iShortestDistance = 10000;
+				local ownCapital = pPlayer1:GetCities():GetCapitalCity();
 				if highestScorePlayer then
 					print("Highest score player ID:", highestScorePlayer.id);
-                    pPlayer1:GetDiplomacy():DeclareWarOn(highestScorePlayer.id, WarTypes.SURPRISE_WAR, true);
-                    local militaryAI = pPlayer1:GetAi_Military();
-                    if militaryAI then
-                        local enemyCity = highestScorePlayer.playerObject:GetCities():FindClosest();
-                        local ownCapital = pPlayer1:GetCities():GetCapitalCity();
-                        if enemyCity and ownCapital then
-                            local operationTime = militaryAI:StartScriptedOperationWithTargetAndRally("Wartime Attack Walled City", highestScorePlayer.id, Map.GetPlot(enemyCity:GetX(), enemyCity:GetY()):GetIndex(), Map.GetPlot(ownCapital:GetX(), ownCapital:GetY()):GetIndex());
+					if pPlayer1:GetDiplomacy():IsAtWarWith(highestScorePlayer.id) then
+						local pPlayer2Cities:table = highestScorePlayer.playerObject:GetCities();
+						for i, pLoopCity in pPlayer2Cities:Members() do
+							local iDistance = Map.GetPlotDistance(ownCapital:GetX(), ownCapital:GetY(), pLoopCity:GetX(), pLoopCity:GetY());
+							if (iDistance < iShortestDistance) then
+								pCity = pLoopCity;
+								iShortestDistance = iDistance;
+							end;
+						end;
+						if pCity and ownCapital then
+                            local operationTime = militaryAI:StartScriptedOperationWithTargetAndRally("Attack Enemy City", pCity:GetOwner(), Map.GetPlot(pCity:GetX(), pCity:GetY()):GetIndex(), Map.GetPlot(ownCapital:GetX(), ownCapital:GetY()):GetIndex());
                             print("Operation started");
                             local pUnits = pPlayer1:GetUnits();
                             for i, pUnit in pUnits:Members() do
@@ -89,7 +96,26 @@ function OnCheckGameEraChanged()
                                 print("Unit added");
                             end;
                         end;
-                    end;
+					else
+						pPlayer1:GetDiplomacy():DeclareWarOn(highestScorePlayer.id, WarTypes.SURPRISE_WAR, true);
+						local pPlayer2Cities:table = highestScorePlayer.playerObject:GetCities();
+						for i, pLoopCity in pPlayer2Cities:Members() do
+							local iDistance = Map.GetPlotDistance(ownCapital:GetX(), ownCapital:GetY(), pLoopCity:GetX(), pLoopCity:GetY());
+							if (iDistance < iShortestDistance) then
+								pCity = pLoopCity;
+								iShortestDistance = iDistance;
+							end;
+						end;
+						if pCity and ownCapital then
+                            local operationTime = militaryAI:StartScriptedOperationWithTargetAndRally("Attack Enemy City", pCity:GetOwner(), Map.GetPlot(pCity:GetX(), pCity:GetY()):GetIndex(), Map.GetPlot(ownCapital:GetX(), ownCapital:GetY()):GetIndex());
+                            print("Operation started");
+                            local pUnits = pPlayer1:GetUnits();
+                            for i, pUnit in pUnits:Members() do
+                                militaryAI:AddUnitToScriptedOperation(operationTime, pUnit:GetID());
+                                print("Unit added");
+                            end;
+                        end;
+					end;
                 end;
 
 				local player1Score = pPlayer1:GetScore();
@@ -99,12 +125,12 @@ function OnCheckGameEraChanged()
 						print("Checking other player ID: ", pOtherPlayerID);
 						local pOtherPlayer = Players[pOtherPlayerID];
 						if pOtherPlayer then
-							pPlayer1Diplomacy:SetHasAllied(pOtherPlayer);
+							--pPlayer1Diplomacy:SetHasAllied(pOtherPlayer);
 						end;
                     end;
                 end;
             end; -- Close the 'for _, pPlayer1 in ipairs(pAllPlayerIDs) do' loop
-            iLastShownEraIndex = currentEra;
+            --iLastShownEraIndex = currentEra;
         end;
     end; -- Close the 'for _, era in ipairs(erasToCheck) do' loop
 end; -- Close the OnCheckGameEraChanged function
